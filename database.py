@@ -94,7 +94,9 @@ class Cliente(Base):
     prospecto = relationship("Prospecto", back_populates="clientes")
 
 # ── CONEXIÓN ─────────────────────────────────────────────
-engine  = create_engine("sqlite:///zenit_crm.db", echo=False)
+import os
+DB_PATH = os.path.join(os.path.dirname(__file__), "zenit_crm.db")
+engine = create_engine(f"sqlite:///{DB_PATH}", echo=False)
 Session = sessionmaker(bind=engine)
 
 def init_db():
