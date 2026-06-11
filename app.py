@@ -289,38 +289,8 @@ with st.sidebar:
 
     st.markdown("---")
 
-st.write("👤", st.session_state.usuario)
-# Toolbar visible solo para admin
-if st.session_state.rol == "admin":
-
-    st.markdown("""
-    <style>
-    [data-testid="stToolbar"] {
-        visibility: visible !important;
-    }
-
-    [data-testid="stHeader"] {
-        visibility: visible !important;
-        height: auto !important;
-    }
-
-    header {
-        display: block !important;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
-else:
-
-    st.markdown("""
-    <style>
-
-    [data-testid="stToolbar"] {
-        display: none !important;
-    }
-
-    </style>
-    """, unsafe_allow_html=True)
+    st.write("👤", st.session_state.nombre)
+    st.caption(st.session_state.rol.title())
     
 # ── DASHBOARD ────────────────────────────────────────────
 if pagina == "Dashboard":
