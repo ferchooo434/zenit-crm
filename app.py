@@ -285,13 +285,35 @@ with st.sidebar:
         label_visibility="collapsed"
     )
 
-    st.markdown("<br><br>", unsafe_allow_html=True)
+    st.markdown(
+    f"""
+    <div style="
+        background:#111111;
+        border:1px solid #222;
+        border-radius:10px;
+        padding:12px;
+        margin-top:10px;
+    ">
+        <div style="
+            color:white;
+            font-size:1rem;
+            font-weight:600;
+        ">
+            👤 {st.session_state.nombre}
+        </div>
 
-    st.markdown("---")
-
-    st.write(f"👤 {st.session_state.nombre}")
-    st.caption(st.session_state.rol.title())
-    
+        <div style="
+            color:#39FF14;
+            font-size:0.80rem;
+            margin-top:4px;
+            font-weight:500;
+        ">
+            {st.session_state.rol.upper()}
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 # ── DASHBOARD ────────────────────────────────────────────
 if pagina == "Dashboard":
     st.markdown("## Dashboard")
