@@ -100,6 +100,7 @@ header {
                 st.session_state.autenticado = True
                 st.session_state.usuario = usuario
                 st.session_state.rol = USUARIOS[usuario]["rol"]
+                st.session_state.nombre = USUARIOS[usuario]["nombre"]
 
                 st.rerun()
 
@@ -286,18 +287,9 @@ with st.sidebar:
 
     st.markdown("<br><br>", unsafe_allow_html=True)
 
-    st.markdown(
-        f"""
-        <hr style='border-color:#262626;'>
+    st.markdown("---")
 
-        <div style='padding-top:8px;'>
-            <div style='font-size:0.95rem;font-weight:600;color:#ffffff;'>
-                👤 {st.session_state.nombre}
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+st.write("👤", st.session_state.usuario)
 # Toolbar visible solo para admin
 if st.session_state.rol == "admin":
 
