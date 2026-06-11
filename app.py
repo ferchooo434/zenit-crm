@@ -9,17 +9,20 @@ init_db()
 USUARIOS = {
     "Fnavarro": {
         "password": "zenit002",
-        "rol": "admin"
+        "rol": "admin",
+        "nombre": "Fernando Navarro"
     },
 
     "Lurista": {
         "password": "zenit001",
-        "rol": "director"
+        "rol": "director",
+        "nombre": "Luis Urista"
     },
 
     "Larias": {
         "password": "zenit003",
-        "rol": "socia"
+        "rol": "socia",
+        "nombre": "Lizbeth Hernandez"
     }
 }
 
@@ -30,6 +33,9 @@ if "autenticado" not in st.session_state:
 
 if "usuario" not in st.session_state:
     st.session_state.usuario = ""
+    
+if "nombre" not in st.session_state:
+    st.session_state.nombre = ""
 
 if "rol" not in st.session_state:
     st.session_state.rol = ""
@@ -119,9 +125,11 @@ header {
         entrar     = st.form_submit_button("Entrar", use_container_width=True)
 
         if entrar:
-            if usuario in USUARIOS and USUARIOS[usuario] == contrasena:
+            if usuario in USUARIOS and USUARIOS[usuario]["password"] == contrasena:
                 st.session_state.autenticado = True
                 st.session_state.usuario = usuario
+                st.session_state.rol = USUARIOS[usuario]["rol"]
+                st.session_state.nombre = USUARIOS[usuario]["nombre"]
                 st.rerun()
             else:
                 st.error("Usuario o contraseña incorrectos.")
@@ -251,15 +259,45 @@ with st.sidebar:
     <div style='font-size:2.3rem;font-weight:800;line-height:1;'>
         zenit <span style='color:#39FF14'>CRM</span>
     </div>
+
     <div style='color:#ffffff;letter-spacing:0.15em;font-size:0.70rem;margin-top:4px;'>
         MARKETING & BRANDING
     </div>
     """, unsafe_allow_html=True)
-    st.markdown("<hr style='border-color:#262626;margin-bottom:1rem'>", unsafe_allow_html=True)
-    pagina = st.radio("", [
-        "Dashboard","Prospectos","Pipeline Kanban",
-        "Seguimientos","Reuniones","Propuestas","Clientes"
-    ], label_visibility="collapsed")
+
+    st.markdown(
+        "<hr style='border-color:#262626;margin-bottom:1rem'>",
+        unsafe_allow_html=True
+    )
+
+    pagina = st.radio(
+        "",
+        [
+            "Dashboard",
+            "Prospectos",
+            "Pipeline Kanban",
+            "Seguimientos",
+            "Reuniones",
+            "Propuestas",
+            "Clientes"
+        ],
+        label_visibility="collapsed"
+    )
+
+    st.markdown("<br><br>", unsafe_allow_html=True)
+
+    st.markdown(
+        f"""
+        <hr style='border-color:#262626;'>
+
+        <div style='padding-top:8px;'>
+            <div style='font-size:0.95rem;font-weight:600;color:#ffffff;'>
+                👤 {st.session_state.nombre}
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 # Toolbar visible solo para admin
 if st.session_state.rol == "admin":
 
