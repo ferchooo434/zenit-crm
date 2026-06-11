@@ -5,19 +5,37 @@ from datetime import date
 init_db()
 
 # ── USUARIOS ─────────────────────────────────────────────
+
 USUARIOS = {
-    "Fnavarro": "zenit002",
-    "Lurista":  "zenit001",
-    "Larias":   "zenit003"
+    "Fnavarro": {
+        "password": "zenit002",
+        "rol": "admin"
+    },
+
+    "Lurista": {
+        "password": "zenit001",
+        "rol": "director"
+    },
+
+    "Larias": {
+        "password": "zenit003",
+        "rol": "socia"
+    }
 }
 
 # ── LOGIN ────────────────────────────────────────────────
+
 if "autenticado" not in st.session_state:
     st.session_state.autenticado = False
+
 if "usuario" not in st.session_state:
     st.session_state.usuario = ""
 
+if "rol" not in st.session_state:
+    st.session_state.rol = ""
+
 if not st.session_state.autenticado:
+
     st.markdown("""
 <style>
 .block-container {
@@ -40,6 +58,49 @@ header {
 }
 </style>
 """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div style='text-align:center;margin-bottom:2rem;'>
+        <div style='font-size:2.5rem;font-weight:800;line-height:1;'>
+            zenit <span style='color:#39FF14'>CRM</span>
+        </div>
+        <div style='color:#ffffff;font-size:0.7rem;letter-spacing:0.15em;margin-top:4px;'>
+            MARKETING & BRANDING
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    with st.form("login"):
+
+        usuario = st.text_input("Usuario")
+
+        contrasena = st.text_input(
+            "Contraseña",
+            type="password"
+        )
+
+        entrar = st.form_submit_button(
+            "Entrar",
+            use_container_width=True
+        )
+
+        if entrar:
+
+            if (
+                usuario in USUARIOS
+                and USUARIOS[usuario]["password"] == contrasena
+            ):
+
+                st.session_state.autenticado = True
+                st.session_state.usuario = usuario
+                st.session_state.rol = USUARIOS[usuario]["rol"]
+
+                st.rerun()
+
+            else:
+                st.error("Usuario o contraseña incorrectos.")
+
+    st.stop()
 
     st.markdown("""
     <div style='text-align:center;margin-bottom:2rem;'>
@@ -200,7 +261,7 @@ with st.sidebar:
         "Seguimientos","Reuniones","Propuestas","Clientes"
     ], label_visibility="collapsed")
 # Toolbar visible solo para admin
-if st.session_state.usuario == "F.navarro":
+if st.session_state.rol == "admin":
     st.markdown("""
     <style>
     [data-testid="stToolbar"] { visibility: visible !important; }
