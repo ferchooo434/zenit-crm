@@ -256,7 +256,6 @@ for key in ["show_form_prospecto","show_form_seguimiento","show_form_reunion","s
 
 # ── SIDEBAR ──────────────────────────────────────────────
 with st.sidebar:
-
     st.markdown("""
     <div style='font-size:2.3rem;font-weight:800;line-height:1;'>
         zenit <span style='color:#39FF14'>CRM</span>
@@ -290,38 +289,9 @@ with st.sidebar:
 
     st.markdown("---")
 
-    st.markdown(
-        f"""
-        <div style="
-            background:#111111;
-            border:1px solid #222222;
-            border-radius:12px;
-            padding:12px;
-            margin-top:10px;
-        ">
-
-            <div style="
-                color:#ffffff;
-                font-size:1rem;
-                font-weight:600;
-            ">
-                👤 {st.session_state.nombre}
-            </div>
-
-            <div style="
-                color:#39FF14;
-                font-size:0.80rem;
-                margin-top:4px;
-                font-weight:500;
-                text-transform:uppercase;
-            ">
-                {st.session_state.rol}
-            </div>
-
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+    st.write(f"👤 {st.session_state.nombre}")
+    st.caption(st.session_state.rol.title())
+    
 # ── DASHBOARD ────────────────────────────────────────────
 if pagina == "Dashboard":
     st.markdown("## Dashboard")
