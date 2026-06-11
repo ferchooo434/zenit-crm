@@ -20,10 +20,24 @@ if "usuario" not in st.session_state:
 if not st.session_state.autenticado:
     st.markdown("""
 <style>
-.block-container { max-width: 420px; margin: auto; padding-top: 8rem; }
-[data-testid="stToolbar"] { visibility: hidden !important; }
-[data-testid="stHeader"] { visibility: hidden !important; height: 0 !important; }
-header { display: none !important; }
+.block-container {
+    max-width: 420px;
+    margin: auto;
+    padding-top: 8rem;
+}
+
+[data-testid="stToolbar"] {
+    visibility: hidden !important;
+}
+
+[data-testid="stHeader"] {
+    visibility: visible !important;
+    height: auto !important;
+}
+
+header {
+    display: block !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
