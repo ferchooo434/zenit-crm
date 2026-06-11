@@ -79,7 +79,7 @@ class Cliente(Base):
 # ── CONEXIÓN SUPABASE ────────────────────────────────────
 DATABASE_URL = os.environ.get(
     "DATABASE_URL",
-    "postgresql://postgres.owwxtfuuwfbmflinlezl:ZenitCRM2026@aws-1-us-east-1.pooler.supabase.com:6543/postgres"
+    "postgresql://postgres.owwxtfuuwfbmflinlezl:zenitCRM2026@aws-1-us-east-1.pooler.supabase.com:6543/postgres"
 )
 
 engine  = create_engine(DATABASE_URL, echo=False)
