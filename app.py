@@ -262,11 +262,33 @@ with st.sidebar:
     ], label_visibility="collapsed")
 # Toolbar visible solo para admin
 if st.session_state.rol == "admin":
+
     st.markdown("""
     <style>
-    [data-testid="stToolbar"] { visibility: visible !important; }
-    [data-testid="stHeader"] { visibility: visible !important; height: auto !important; }
-    header { display: block !important; }
+    [data-testid="stToolbar"] {
+        visibility: visible !important;
+    }
+
+    [data-testid="stHeader"] {
+        visibility: visible !important;
+        height: auto !important;
+    }
+
+    header {
+        display: block !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+else:
+
+    st.markdown("""
+    <style>
+
+    [data-testid="stToolbar"] {
+        display: none !important;
+    }
+
     </style>
     """, unsafe_allow_html=True)
     
