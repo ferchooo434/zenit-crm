@@ -144,7 +144,9 @@ div[role="radiogroup"] label:hover { color: #a755f6 !important; transition: 0.2s
 div[role="radiogroup"] input:checked + div { color: #39FF14 !important; font-weight: 700 !important; }
 div[role="radiogroup"] label[data-baseweb="radio"] input { accent-color: #a755f6 !important; }
 
-#MainMenu { visibility: visible; }
+#MainMenu { visibility: hidden; }
+[data-testid="stToolbar"] { visibility: hidden; }
+header { visibility: hidden; }
 footer { visibility: hidden; }
 .block-container { padding-top: 2rem; padding-bottom: 2rem; }
 </style>
@@ -176,7 +178,16 @@ with st.sidebar:
         "Dashboard","Prospectos","Pipeline Kanban",
         "Seguimientos","Reuniones","Propuestas","Clientes"
     ], label_visibility="collapsed")
-
+# Toolbar visible solo para admin
+if st.session_state.usuario == "F.navarro":
+    st.markdown("""
+    <style>
+    [data-testid="stToolbar"] { visibility: visible !important; }
+    [data-testid="stHeader"] { visibility: visible !important; height: auto !important; }
+    header { display: block !important; }
+    </style>
+    """, unsafe_allow_html=True)
+    
 # ── DASHBOARD ────────────────────────────────────────────
 if pagina == "Dashboard":
     st.markdown("## Dashboard")
