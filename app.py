@@ -168,8 +168,6 @@ div[role="radiogroup"] label[data-baseweb="radio"] input { accent-color: #a755f6
 
 #MainMenu { visibility: hidden; }
 [data-testid="stToolbar"] { visibility: hidden !important; }
-[data-testid="stHeader"] { visibility: hidden !important; height: 0 !important; }
-header { display: none !important; }
 footer { visibility: hidden; }
 [data-testid="stStatusWidget"] { visibility: hidden !important; display: none !important; }
 .stDeployButton { display: none !important; }
@@ -238,8 +236,6 @@ with st.sidebar:
         st.markdown("""
         <style>
         [data-testid="stToolbar"] { visibility: visible !important; }
-        [data-testid="stHeader"] { visibility: visible !important; height: auto !important; }
-        header { display: block !important; }
         </style>
         """, unsafe_allow_html=True)
     
