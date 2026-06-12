@@ -33,7 +33,7 @@ if "autenticado" not in st.session_state:
 
 if "usuario" not in st.session_state:
     st.session_state.usuario = ""
-    
+
 if "nombre" not in st.session_state:
     st.session_state.nombre = ""
 
@@ -43,27 +43,26 @@ if "rol" not in st.session_state:
 if not st.session_state.autenticado:
 
     st.markdown("""
-<style>
-.block-container {
-    max-width: 420px;
-    margin: auto;
-    padding-top: 8rem;
-}
+    <style>
 
-[data-testid="stToolbar"] {
-    visibility: hidden !important;
-}
+    .block-container {
+        max-width: 420px;
+        margin: auto;
+        padding-top: 8rem;
+    }
 
-[data-testid="stHeader"] {
-    visibility: visible !important;
-    height: auto !important;
-}
+    /* Oculta botones de edición */
+    [data-testid="stToolbar"] {
+        visibility: hidden !important;
+    }
 
-header {
-    display: block !important;
-}
-</style>
-""", unsafe_allow_html=True)
+    /* Mantiene visible la barra superior */
+    header {
+        display: block !important;
+    }
+
+    </style>
+    """, unsafe_allow_html=True)
 
     st.markdown("""
     <div style='text-align:center;margin-bottom:2rem;'>
