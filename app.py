@@ -232,16 +232,9 @@ div[role="radiogroup"] input:checked + div { color: #39FF14 !important; font-wei
 div[role="radiogroup"] label[data-baseweb="radio"] input { accent-color: #a755f6 !important; }
 
 #MainMenu { visibility: hidden; }
+[data-testid="stToolbar"] { visibility: hidden !important; }
 footer { visibility: hidden; }
-
-[data-testid="stToolbar"] {
-    display: none !important;
-}
-
-.block-container {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-}
+.block-container { padding-top: 2rem; padding-bottom: 2rem; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -301,18 +294,6 @@ with st.sidebar:
     </div>
 </div>
 """, unsafe_allow_html=True)
-    
-# ── PERMISOS ADMIN ───────────────────────────────────────
-
-if st.session_state.rol == "admin":
-
-    st.markdown("""
-    <style>
-    [data-testid="stToolbar"] {
-        display: block !important;
-    }
-    </style>
-    """, unsafe_allow_html=True)
     
 # ── DASHBOARD ────────────────────────────────────────────
 if pagina == "Dashboard":
