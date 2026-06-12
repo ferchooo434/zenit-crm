@@ -289,8 +289,16 @@ with st.sidebar:
 
     st.markdown("---")
 
-    st.write(f"👤 {st.session_state.nombre}")
-    st.caption(st.session_state.rol.title())
+st.markdown(f"""
+<div style='padding: 8px 0;'>
+    <div style='font-size:0.85rem;font-weight:600;color:#e0e0e0;'>
+        {st.session_state.nombre}
+    </div>
+    <div style='font-size:0.7rem;color:#555;letter-spacing:0.05em;text-transform:uppercase;margin-top:2px;'>
+        {st.session_state.rol}
+    </div>
+</div>
+""", unsafe_allow_html=True)
     
 # ── DASHBOARD ────────────────────────────────────────────
 if pagina == "Dashboard":
