@@ -232,11 +232,8 @@ div[role="radiogroup"] label:hover { color: #a755f6 !important; transition: 0.2s
 div[role="radiogroup"] input:checked + div { color: #39FF14 !important; font-weight: 700 !important; }
 div[role="radiogroup"] label[data-baseweb="radio"] input { accent-color: #a755f6 !important; }
 
-/* #MainMenu { visibility: hidden; } */
-}
-header {
-    visibility: visible !important;
-}
+#MainMenu { visibility: hidden; }
+[data-testid="stToolbar"] { visibility: hidden !important; }
 footer { visibility: hidden; }
 .block-container { padding-top: 2rem; padding-bottom: 2rem; }
 </style>
