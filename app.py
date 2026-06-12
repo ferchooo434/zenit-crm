@@ -232,8 +232,7 @@ div[role="radiogroup"] input:checked + div { color: #39FF14 !important; font-wei
 div[role="radiogroup"] label[data-baseweb="radio"] input { accent-color: #a755f6 !important; }
 
 #MainMenu { visibility: hidden; }
-[data-testid="stToolbar"] {
-    visibility: visible !important;
+[data-testid="stToolbar"] { visibility: hidden !important; }
 }
 header {
     visibility: visible !important;
@@ -260,7 +259,6 @@ with st.sidebar:
     <div style='font-size:2.3rem;font-weight:800;line-height:1;'>
         zenit <span style='color:#39FF14'>CRM</span>
     </div>
-
     <div style='color:#ffffff;letter-spacing:0.15em;font-size:0.70rem;margin-top:4px;'>
         MARKETING & BRANDING
     </div>
@@ -286,7 +284,6 @@ with st.sidebar:
     )
 
     st.markdown("<br><br>", unsafe_allow_html=True)
-
     st.markdown("---")
 
     st.markdown(f"""
@@ -299,7 +296,13 @@ with st.sidebar:
     </div>
 </div>
 """, unsafe_allow_html=True)
-    
+
+    if st.session_state.rol == "admin":
+        st.markdown("""
+        <style>
+        [data-testid="stToolbar"] { visibility: visible !important; }
+        </style>
+        """, unsafe_allow_html=True)
 # ── DASHBOARD ────────────────────────────────────────────
 if pagina == "Dashboard":
     st.markdown("## Dashboard")
