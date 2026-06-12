@@ -145,9 +145,9 @@ st.set_page_config(
 if st.session_state.rol != "admin":
     st.markdown("""
     <style>
-    [data-testid="stToolbar"] {
-        display: none !important;
-    }
+  [data-testid="stToolbar"] {
+    visibility: hidden !important;
+}
     </style>
     """, unsafe_allow_html=True)
     
