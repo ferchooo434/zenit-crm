@@ -232,9 +232,8 @@ div[role="radiogroup"] input:checked + div { color: #39FF14 !important; font-wei
 div[role="radiogroup"] label[data-baseweb="radio"] input { accent-color: #a755f6 !important; }
 
 #MainMenu { visibility: hidden; }
-[data-testid="stToolbar"] { visibility: hidden !important; }
-[data-testid="stHeader"] { visibility: hidden !important; height: 0 !important; }
-header { display: none !important; }
+[data-testid="stToolbar"] {
+    visibility: visible !important;
 }
 header {
     visibility: visible !important;
