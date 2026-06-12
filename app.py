@@ -142,7 +142,15 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
-
+if st.session_state.rol != "admin":
+    st.markdown("""
+    <style>
+    [data-testid="stToolbar"] {
+        display: none !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
@@ -231,7 +239,7 @@ div[role="radiogroup"] label:hover { color: #a755f6 !important; transition: 0.2s
 div[role="radiogroup"] input:checked + div { color: #39FF14 !important; font-weight: 700 !important; }
 div[role="radiogroup"] label[data-baseweb="radio"] input { accent-color: #a755f6 !important; }
 
-#MainMenu { visibility: hidden; }
+/* #MainMenu { visibility: hidden; } */
 }
 header {
     visibility: visible !important;
