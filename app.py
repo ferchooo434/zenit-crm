@@ -27,87 +27,24 @@ USUARIOS = {
 }
 
 # ── LOGIN ────────────────────────────────────────────────
-
 if "autenticado" not in st.session_state:
     st.session_state.autenticado = False
-
 if "usuario" not in st.session_state:
     st.session_state.usuario = ""
-    
 if "nombre" not in st.session_state:
     st.session_state.nombre = ""
-
 if "rol" not in st.session_state:
     st.session_state.rol = ""
 
 if not st.session_state.autenticado:
-
     st.markdown("""
-<style>
-.block-container {
-    max-width: 420px;
-    margin: auto;
-    padding-top: 8rem;
-}
-
-[data-testid="stToolbar"] {
-    visibility: hidden !important;
-}
-
-[data-testid="stHeader"] {
-    visibility: visible !important;
-    height: auto !important;
-}
-
-header {
-    display: block !important;
-}
-</style>
-""", unsafe_allow_html=True)
-
-    st.markdown("""
-    <div style='text-align:center;margin-bottom:2rem;'>
-        <div style='font-size:2.5rem;font-weight:800;line-height:1;'>
-            zenit <span style='color:#39FF14'>CRM</span>
-        </div>
-        <div style='color:#ffffff;font-size:0.7rem;letter-spacing:0.15em;margin-top:4px;'>
-            MARKETING & BRANDING
-        </div>
-    </div>
+    <style>
+    .block-container { max-width: 420px; margin: auto; padding-top: 8rem; }
+    [data-testid="stToolbar"] { visibility: hidden !important; }
+    [data-testid="stHeader"] { visibility: hidden !important; height: 0 !important; }
+    header { display: none !important; }
+    </style>
     """, unsafe_allow_html=True)
-
-    with st.form("login"):
-
-        usuario = st.text_input("Usuario")
-
-        contrasena = st.text_input(
-            "Contraseña",
-            type="password"
-        )
-
-        entrar = st.form_submit_button(
-            "Entrar",
-            use_container_width=True
-        )
-
-        if entrar:
-
-            if (
-                usuario in USUARIOS
-                and USUARIOS[usuario]["password"] == contrasena
-            ):
-
-                st.session_state.autenticado = True
-                st.session_state.usuario = usuario
-                st.session_state.rol = USUARIOS[usuario]["rol"]
-                st.session_state.nombre = USUARIOS[usuario]["nombre"]
-
-                st.rerun()
-
-            else:
-                st.error("Usuario o contraseña incorrectos.")
-
-    st.stop()
 
     st.markdown("""
     <div style='text-align:center;margin-bottom:2rem;'>
@@ -124,7 +61,6 @@ header {
         usuario    = st.text_input("Usuario")
         contrasena = st.text_input("Contraseña", type="password")
         entrar     = st.form_submit_button("Entrar", use_container_width=True)
-
         if entrar:
             if usuario in USUARIOS and USUARIOS[usuario]["password"] == contrasena:
                 st.session_state.autenticado = True
@@ -134,7 +70,6 @@ header {
                 st.rerun()
             else:
                 st.error("Usuario o contraseña incorrectos.")
-
     st.stop()
 
 st.set_page_config(
@@ -232,12 +167,9 @@ div[role="radiogroup"] input:checked + div { color: #39FF14 !important; font-wei
 div[role="radiogroup"] label[data-baseweb="radio"] input { accent-color: #a755f6 !important; }
 
 #MainMenu { visibility: hidden; }
-[data-testid="stToolbar"] {
-    visibility: visible !important;
-}
-header {
-    visibility: visible !important;
-}
+[data-testid="stToolbar"] { visibility: hidden !important; }
+[data-testid="stHeader"] { visibility: hidden !important; height: 0 !important; }
+header { display: none !important; }
 footer { visibility: hidden; }
 .block-container { padding-top: 2rem; padding-bottom: 2rem; }
 </style>
@@ -299,6 +231,14 @@ with st.sidebar:
     </div>
 </div>
 """, unsafe_allow_html=True)
+    if st.session_state.rol == "admin":
+        st.markdown("""
+        <style>
+        [data-testid="stToolbar"] { visibility: visible !important; }
+        [data-testid="stHeader"] { visibility: visible !important; height: auto !important; }
+        header { display: block !important; }
+        </style>
+        """, unsafe_allow_html=True)
     
 # ── DASHBOARD ────────────────────────────────────────────
 if pagina == "Dashboard":
