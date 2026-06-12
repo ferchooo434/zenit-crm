@@ -232,7 +232,6 @@ div[role="radiogroup"] input:checked + div { color: #39FF14 !important; font-wei
 div[role="radiogroup"] label[data-baseweb="radio"] input { accent-color: #a755f6 !important; }
 
 #MainMenu { visibility: hidden; }
-[data-testid="stToolbar"] { visibility: hidden !important; }
 }
 header {
     visibility: visible !important;
@@ -297,12 +296,14 @@ with st.sidebar:
 </div>
 """, unsafe_allow_html=True)
 
-    if st.session_state.rol == "admin":
-        st.markdown("""
-        <style>
-        [data-testid="stToolbar"] { visibility: visible !important; }
-        </style>
-        """, unsafe_allow_html=True)
+# Toolbar: visible para admin, oculta para el resto
+if st.session_state.rol != "admin":
+    st.markdown("""
+    <style>
+    [data-testid="stToolbar"] { visibility: hidden !important; }
+    </style>
+    """, unsafe_allow_html=True)
+
 # ── DASHBOARD ────────────────────────────────────────────
 if pagina == "Dashboard":
     st.markdown("## Dashboard")
