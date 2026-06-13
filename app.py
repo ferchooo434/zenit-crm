@@ -21,7 +21,7 @@ USUARIOS = {
 
     "Larias": {
         "password": "zenit003",
-        "rol": "socia",
+        "rol": "Directora de E.",
         "nombre": "Lizbeth Hernandez"
     }
 }

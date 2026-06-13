@@ -19,6 +19,7 @@ class Prospecto(Base):
     ubicacion        = Column(String)
     estado_pipeline  = Column(String, default="Prospecto")
     fecha_registro   = Column(Date, default=date.today)
+    drive_url        = Column(String)
     diagnosticos  = relationship("Diagnostico",  back_populates="prospecto", cascade="all, delete")
     seguimientos  = relationship("Seguimiento",  back_populates="prospecto", cascade="all, delete")
     reuniones     = relationship("Reunion",      back_populates="prospecto", cascade="all, delete")
