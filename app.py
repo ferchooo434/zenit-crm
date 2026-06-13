@@ -15,13 +15,13 @@ USUARIOS = {
 
     "Lurista": {
         "password": "zenit001",
-        "rol": "director",
+        "rol": "Director",
         "nombre": "Luis Urista"
     },
 
     "Larias": {
         "password": "zenit003",
-        "rol": "Directora de E.",
+        "rol": "Directora de Estrategias",
         "nombre": "Lizbeth Hernandez"
     }
 }
