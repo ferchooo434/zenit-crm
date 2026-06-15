@@ -284,7 +284,6 @@ with st.sidebar:
         font-size:0.9rem;
         font-weight:600;
         color:white;
-        margin-bottom:2px;
     ">
         {st.session_state.nombre}
     </div>
@@ -292,6 +291,7 @@ with st.sidebar:
     <div style="
         font-size:0.7rem;
         color:#666;
+        margin-top:2px;
         text-transform:uppercase;
     ">
         {st.session_state.rol}
