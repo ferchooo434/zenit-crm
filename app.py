@@ -254,14 +254,17 @@ with st.sidebar:
 
     st.image(
         "logo.png",
-        use_container_width=True
+        width=180
     )
-    
-    st.markdown(
-        "<hr style='border-color:#262626;margin-bottom:1rem'>",
-        unsafe_allow_html=True
-    )
-    
+
+    st.markdown("""
+    <style>
+    div[role="radiogroup"]{
+        margin-top:-20px;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
     pagina = st.radio(
         "",
         [
