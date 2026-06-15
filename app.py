@@ -278,8 +278,37 @@ with st.sidebar:
         label_visibility="collapsed"
     )
 
-    st.markdown(f"<div style='margin-top:1rem'><span style='font-size:0.85rem;font-weight:600;color:#e0e0e0'>{st.session_state.nombre}</span><br><span style='font-size:0.7rem;color:#555;text-transform:uppercase'>{st.session_state.rol}</span></div>", unsafe_allow_html=True)
-    
+st.markdown(f"""
+<hr style='border-color:#1f1f1f;margin:12px 0;'>
+
+<div style='padding:4px 0;'>
+
+    <div style='
+        color:#ffffff;
+        font-size:0.9rem;
+        font-weight:600;
+    '>
+        {st.session_state.nombre}
+    </div>
+
+    <div style='
+        display:inline-block;
+        margin-top:6px;
+        padding:2px 8px;
+        background:#141414;
+        border:1px solid #262626;
+        border-radius:12px;
+        color:#39FF14;
+        font-size:0.65rem;
+        font-weight:600;
+        text-transform:uppercase;
+        letter-spacing:0.08em;
+    '>
+        {st.session_state.rol}
+    </div>
+
+</div>
+""", unsafe_allow_html=True)    
 # ── DASHBOARD ────────────────────────────────────────────
 if pagina == "Dashboard":
     st.markdown("## Dashboard")
