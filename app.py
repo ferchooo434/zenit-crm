@@ -250,20 +250,18 @@ for key in ["show_form_prospecto","show_form_seguimiento","show_form_reunion","s
         st.session_state[key] = False
 
 # ── SIDEBAR ──────────────────────────────────────────────
+
 with st.sidebar:
 
     st.image(
         "logo.png",
-        width=180
+        use_container_width=True
     )
 
-    st.markdown("""
-    <style>
-    div[role="radiogroup"]{
-        margin-top:-20px;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+    st.markdown(
+        "<hr style='border-color:#262626;margin-bottom:1rem'>",
+        unsafe_allow_html=True
+    )
 
     pagina = st.radio(
         "",
@@ -274,8 +272,7 @@ with st.sidebar:
             "Seguimientos",
             "Reuniones",
             "Propuestas",
-            "Clientes",
-            "Calendario"
+            "Clientes"
         ],
         label_visibility="collapsed"
     )
