@@ -278,13 +278,26 @@ with st.sidebar:
         label_visibility="collapsed"
     )
 
-    st.markdown(
-        "<hr style='border-color:#262626;margin:10px 0 10px 0'>",
-        unsafe_allow_html=True
-    )
+    st.markdown(f"""
+<div style="padding:0;">
+    <div style="
+        font-size:0.9rem;
+        font-weight:600;
+        color:white;
+        margin-bottom:2px;
+    ">
+        {st.session_state.nombre}
+    </div>
 
-    st.write("Nombre:", st.session_state.nombre)
-st.write("Rol:", st.session_state.rol)
+    <div style="
+        font-size:0.7rem;
+        color:#666;
+        text-transform:uppercase;
+    ">
+        {st.session_state.rol}
+    </div>
+</div>
+""", unsafe_allow_html=True)
     
 # ── DASHBOARD ────────────────────────────────────────────
 if pagina == "Dashboard":
