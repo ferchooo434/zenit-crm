@@ -251,21 +251,17 @@ for key in ["show_form_prospecto","show_form_seguimiento","show_form_reunion","s
 
 # ── SIDEBAR ──────────────────────────────────────────────
 with st.sidebar:
-    st.markdown("""
-    <div style='font-size:2.3rem;font-weight:800;line-height:1;'>
-        zenit <span style='color:#39FF14'>CRM</span>
-    </div>
 
-    <div style='color:#ffffff;letter-spacing:0.15em;font-size:0.70rem;margin-top:4px;'>
-        MARKETING & BRANDING
-    </div>
-    """, unsafe_allow_html=True)
-
+    st.image(
+        "logo.png",
+        use_container_width=True
+    )
+    
     st.markdown(
         "<hr style='border-color:#262626;margin-bottom:1rem'>",
         unsafe_allow_html=True
     )
-
+    
     pagina = st.radio(
         "",
         [
