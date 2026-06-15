@@ -763,7 +763,7 @@ elif pagina == "Clientes":
 # ── CALENDARIO ───────────────────────────────────────────
 elif pagina == "Calendario":
 
-    st.markdown("Calendario Comercial")
+    st.markdown("## Calendario Comercial")
 
     st.markdown(
         """
