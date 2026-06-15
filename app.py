@@ -257,9 +257,9 @@ with st.sidebar:
         "logo.png",
         use_container_width=True
     )
-
+    
     st.markdown(
-        "<hr style='border-color:#262626;margin-bottom:1rem'>",
+        "<hr style='border-color:#262626;margin:8px 0 8px 0'>",
         unsafe_allow_html=True
     )
 
@@ -272,25 +272,33 @@ with st.sidebar:
             "Seguimientos",
             "Reuniones",
             "Propuestas",
-            "Clientes"
+            "Clientes",
+            "Calendario"
         ],
         label_visibility="collapsed"
     )
 
-    st.markdown("<br><br>", unsafe_allow_html=True)
-
-    st.markdown("---")
+    st.markdown(
+        "<hr style='border-color:#262626;margin:10px 0 10px 0'>",
+        unsafe_allow_html=True
+    )
 
     st.markdown(f"""
-<div style='padding: 8px 0;'>
-    <div style='font-size:0.85rem;font-weight:600;color:#e0e0e0;'>
-        {st.session_state.nombre}
+    <div style="padding:0;">
+        <div style="font-size:0.9rem;font-weight:600;color:white;">
+            {st.session_state.nombre}
+        </div>
+
+        <div style="
+            font-size:0.7rem;
+            color:#666;
+            margin-top:2px;
+            text-transform:uppercase;
+        ">
+            {st.session_state.rol}
+        </div>
     </div>
-    <div style='font-size:0.7rem;color:#555;letter-spacing:0.05em;text-transform:uppercase;margin-top:2px;'>
-        {st.session_state.rol}
-    </div>
-</div>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
     
 # ── DASHBOARD ────────────────────────────────────────────
 if pagina == "Dashboard":
