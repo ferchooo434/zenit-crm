@@ -262,6 +262,12 @@ with st.sidebar:
     div[role="radiogroup"]{
         margin-top:-20px;
     }
+    </style>
+    """, unsafe_allow_html=True)
+
+    pagina = st.radio(
+        "",
+        [
             "Dashboard",
             "Prospectos",
             "Pipeline Kanban",
