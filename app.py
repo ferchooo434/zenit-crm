@@ -21,7 +21,7 @@ USUARIOS = {
 
     "Larias": {
         "password": "zenit003",
-        "rol": "Directora de Corajes",
+        "rol": "Directora de Estrategias",
         "nombre": "Lizbeth Hernandez"
     }
 }
@@ -275,7 +275,8 @@ with st.sidebar:
             "Seguimientos",
             "Reuniones",
             "Propuestas",
-            "Clientes"
+            "Clientes",
+            "Calendario"
         ],
         label_visibility="collapsed"
     )
@@ -758,3 +759,20 @@ elif pagina == "Clientes":
                 c2.markdown(f"<span style='color:#39FF14;font-weight:700'>${c.fee_mensual:,.0f}</span> / mes", unsafe_allow_html=True)
                 c2.markdown(f"<div style='font-size:0.8rem;color:#888'>Desde {c.fecha_inicio}</div>", unsafe_allow_html=True)
                 c3.markdown(f"<span style='color:{color};font-size:0.8rem;font-weight:600'>{c.estado}</span>", unsafe_allow_html=True)
+    
+# ── CALENDARIO ───────────────────────────────────────────
+elif pagina == "Calendario":
+
+    st.markdown("## 📅 Calendario Comercial")
+
+    st.markdown(
+        """
+        Gestiona reuniones, llamadas, tareas y actividades comerciales.
+        """
+    )
+
+    st.link_button(
+        "📂 Abrir Calendario",
+        "https://docs.google.com/spreadsheets/d/1-RuXa-pYtsZh5ZcW-2NuDKprQo3WgPGg9wQssD6ireg/edit?gid=0#gid=0",
+        use_container_width=True
+    )
