@@ -747,16 +747,15 @@ elif pagina == "Clientes":
 # ── CALENDARIO ───────────────────────────────────────────
 elif pagina == "Calendario":
 
-    st.markdown("## Calendario Comercial")
+    st.markdown("## 📅 Calendario Comercial")
 
-    st.markdown(
-        """
-        Gestiona actividades comerciales.
-        """
-    )
+    st.caption("Gestiona actividades comerciales y publicaciones en paginas.")
 
-    st.link_button(
-        "📂 Abrir Calendario",
-        "https://docs.google.com/spreadsheets/d/1-RuXa-pYtsZh5ZcW-2NuDKprQo3WgPGg9wQssD6ireg/edit?gid=0#gid=0",
-        use_container_width=True
-    )
+    col1, col2, col3 = st.columns([2, 1, 2])
+
+    with col2:
+        st.link_button(
+            "📂 Abrir Calendario",
+            "https://docs.google.com/spreadsheets/d/1-RuXa-pYtsZh5ZcW-2NuDKprQo3WgPGg9wQssD6ireg/edit?gid=0#gid=0",
+            use_container_width=True
+        )
