@@ -753,9 +753,9 @@ elif pagina == "Calendario":
 
     col1, col2, col3 = st.columns([2, 1, 2])
 
-    with col2:
-        st.link_button(
-            "📂 Abrir Calendario",
-            "https://docs.google.com/spreadsheets/d/1-RuXa-pYtsZh5ZcW-2NuDKprQo3WgPGg9wQssD6ireg/edit?gid=0#gid=0",
-            use_container_width=True
-        )
+with col2:
+    st.link_button(
+        "📂 Abrir Calendario",
+        "https://docs.google.com/spreadsheets/d/1-RuXa-pYtsZh5ZcW-2NuDKprQo3WgPGg9wQssD6ireg/edit?gid=0#gid=0",
+        use_container_width=True
+    )
