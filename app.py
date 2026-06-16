@@ -751,9 +751,9 @@ elif pagina == "Calendario":
 
     st.caption("Gestiona actividades comerciales y publicaciones en paginas.")
 
-    col1, col2, col3 = st.columns([2, 1, 2])
+    col1, col2, col3 = st.columns([1, 5, 1])
 
-with col2:
+with col1:
     st.link_button(
         "📂 Abrir Calendario",
         "https://docs.google.com/spreadsheets/d/1-RuXa-pYtsZh5ZcW-2NuDKprQo3WgPGg9wQssD6ireg/edit?gid=0#gid=0",
